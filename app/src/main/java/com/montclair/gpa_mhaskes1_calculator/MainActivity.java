@@ -1,12 +1,14 @@
 package com.montclair.gpa_mhaskes1_calculator;
 
 import android.app.Notification;
+import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
     EditText grade1,grade2,grade3,grade4,grade5;
+    boolean calculatedResult = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
         updateBackground(res);
 
+        calculatedResult = true;
         Toast.makeText(this, "Calculated GPA Successfully:: " + res, Toast.LENGTH_LONG).show();
 
 
@@ -101,7 +105,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+/*private void closekeyboard()
+{
+    View view = this.getCurrentFocus();
+    if (view!=null)
+    {
+        InputMethodManager keypad = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                keypad.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
 
+}*/
     private double getGPAScore() {
         //TODO: read all text baxes
 
@@ -118,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
         int i4 = Integer.valueOf(g4);
         int i5 = Integer.valueOf(g5);
         TextView textView;
+
 
         // TODO: calculate GPA
 
@@ -146,15 +160,17 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void afterTextChanged(Editable s) {
-            if(((Button)findViewById(R.id.gpa_button)).getText().length() == 0){
-                ((Button)findViewById(R.id.gpa_button)).setText("Re-Calculate GPA");
-            };
 
+            allValidField = true;
             validateEmptyField(grade1);
             validateEmptyField(grade2);
             validateEmptyField(grade3);
             validateEmptyField(grade4);
             validateEmptyField(grade5);
+
+            if(allValidField && calculatedResult){
+                ((Button)findViewById(R.id.gpa_button)).setText("Re-Calculate GPA");
+            };
 
             return;
         }
