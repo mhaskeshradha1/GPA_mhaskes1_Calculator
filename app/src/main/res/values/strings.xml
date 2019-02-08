@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">GPA_mhaskes1_Calculator</string>
+    <string name="title">GPA Calculator - shradha</string>
+    <string name="textview2">Mc</string>
+    <string name="textview3">SE</string>
+    <string name="button_text">Calculate GPA</string>
+    <string name="gpa_prompt">Choose a country</string>
+    <string name="textview">course 1</string>
+    <string name="course2">course2</string>
+    <string name="course3">course3</string>
+    <string name="course4">course4</string>
+    <string name="course5">course5</string>
+    <string name="default_number">Enter your course score</string>
+
+</resources>
