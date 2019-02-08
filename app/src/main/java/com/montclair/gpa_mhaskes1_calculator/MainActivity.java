@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         TextView result = findViewById(R.id.result);
 
         if(!allValidField){
-            result.setText("Please enter value in RED field(s) above" );
+            result.setText("Please enter 0-100 value in RED field(s) above" );
             Toast.makeText(this, "Please enter value in RED fields ", Toast.LENGTH_LONG).show();
             return;
         }
@@ -61,13 +61,19 @@ public class MainActivity extends AppCompatActivity {
 
 
         result.setText("Your GPA is " + res);
-        ((Button)findViewById(R.id.button)).setText("");
+        ((Button)findViewById(R.id.gpa_button)).setText("");
 
-        grade1.setText("0");
-        grade2.setText("0");
-        grade3.setText("0");
-        grade4.setText("0");
-        grade5.setText("0");
+        grade1.setText("");
+        grade2.setText("");
+        grade3.setText("");
+        grade4.setText("");
+        grade5.setText("");
+
+        grade1.setHint("Enter your course score");
+        grade2.setHint("Enter your course score");
+        grade3.setHint("Enter your course score");
+        grade4.setHint("Enter your course score");
+        grade5.setHint("Enter your course score");
 
         updateBackground(res);
 
@@ -80,9 +86,20 @@ public class MainActivity extends AppCompatActivity {
         if(e.getText().toString().trim().isEmpty()){
             e.setBackgroundColor(Color.RED);
             allValidField = false;
+            return;
         } else {
             e.setBackgroundColor(Color.WHITE);
         }
+
+        int i = Integer.valueOf(e.getText().toString());
+
+        if (i < 0 || i > 100)
+        {
+            e.setBackgroundColor(Color.RED);
+            allValidField = false;
+        }
+
+
     }
 
     private double getGPAScore() {
@@ -109,11 +126,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateBackground(double res) {
         if (res<60){
-            findViewById(R.id.table).setBackgroundColor(Color.RED);
+            findViewById(R.id.layout).setBackgroundColor(Color.RED);
         }else if (res > 60 && res < 80){
-            findViewById(R.id.table).setBackgroundColor(Color.YELLOW);
+            findViewById(R.id.layout).setBackgroundColor(Color.YELLOW);
         } else {
-            findViewById(R.id.table).setBackgroundColor(Color.GREEN);
+            findViewById(R.id.layout).setBackgroundColor(Color.GREEN);
         }
     }
 
@@ -129,8 +146,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void afterTextChanged(Editable s) {
-            if(((Button)findViewById(R.id.button)).getText().length() == 0){
-                ((Button)findViewById(R.id.button)).setText("Calculate GPA");
+            if(((Button)findViewById(R.id.gpa_button)).getText().length() == 0){
+                ((Button)findViewById(R.id.gpa_button)).setText("Re-Calculate GPA");
             };
 
             validateEmptyField(grade1);
