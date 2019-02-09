@@ -1,192 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center"
-    tools:context=".MainActivity">
-    <ScrollView
-        android:id="@+id/layout"
-        android:layout_height="match_parent"
-        android:scrollbars="horizontal|vertical"
-        android:layout_width="match_parent"
-        android:layout_marginTop="0dip"
-        android:scrollbarStyle="outsideInset"
-        android:fillViewport="true">
-
-        <HorizontalScrollView
-            android:id="@+id/horizontalView"
-            android:layout_height="wrap_content"
-            android:scrollbars="horizontal|vertical"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="0dip">
-
-                <TableLayout
-                    android:id="@+id/table"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    >
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_margin="10dp">
-                        <TextView
-                            android:id="@+id/title"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/title"
-                            tools:layout_editor_absoluteX="0dp"
-                            tools:layout_editor_absoluteY="0dp"
-                            android:gravity="center"
-                            />
-
-
-                    </TableRow>
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_margin="10dp">
-                        <TextView
-                            android:id="@+id/course1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/textview"
-                            tools:layout_editor_absoluteX="90dp"
-                            tools:layout_editor_absoluteY="254dp" />
-
-                        <EditText
-                            android:id="@+id/grade1"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/default_number"
-
-                            android:inputType="number" />
-                    </TableRow>
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_margin="10dp" >
-                        <TextView
-                            android:id="@+id/course2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/course2"
-                            tools:layout_editor_absoluteX="90dp"
-                            tools:layout_editor_absoluteY="254dp" />
-
-                        <EditText
-                            android:id="@+id/grade2"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:hint="@string/default_number" />
-
-                    </TableRow>
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_margin="10dp" >
-                        <TextView
-                            android:id="@+id/course3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/course3"
-                            tools:layout_editor_absoluteX="90dp"
-                            tools:layout_editor_absoluteY="254dp" />
-
-                        <EditText
-                            android:id="@+id/grade3"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/default_number"
-                            android:inputType="number" />
-
-                    </TableRow>
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_margin="10dp" >
-                        <TextView
-                            android:id="@+id/course4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/course4"
-                            tools:layout_editor_absoluteX="90dp"
-                            tools:layout_editor_absoluteY="254dp" />
-
-
-                        <EditText
-                            android:id="@+id/grade4"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/default_number"
-                            android:inputType="number" />
-
-                    </TableRow>
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_margin="10dp" >
-                        <TextView
-                            android:id="@+id/course5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/course5"
-                            tools:layout_editor_absoluteX="90dp"
-                            tools:layout_editor_absoluteY="254dp"
-                            android:singleLine="true"
-                            />
-
-
-                        <EditText
-                            android:id="@+id/grade5"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/default_number"
-                            android:inputType="number" />
-                    </TableRow>
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_margin="10dp"
-                        android:layout_gravity="center_horizontal" >
-
-                        <TextView
-                            android:id="@+id/result"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text=""
-                            tools:layout_editor_absoluteX="0dp"
-                            tools:layout_editor_absoluteY="0dp"
-                            android:gravity="center"
-                            />
-                    </TableRow>
-                    <TableRow
-
-                        android:layout_gravity="center_horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_margin="10dp" >
-
-
-                        <Button
-                            android:id="@+id/gpa_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:onClick="calculateGPA"
-                            android:text="@string/button_text"
-                            tools:layout_editor_absoluteX="0dp"
-                            tools:layout_editor_absoluteY="0dp"
-                            android:gravity="center"
-                            />
-                    </TableRow>
-                </TableLayout>
+<?xml version="1.0" encoding="UTF-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_gravity="center" tools:context=".MainActivity">
+    <ScrollView android:id="@+id/layout" android:layout_height="match_parent" android:scrollbars="horizontal|vertical" android:layout_width="match_parent" android:layout_marginTop="0dip" android:scrollbarStyle="outsideInset" android:fillViewport="true">
+        <HorizontalScrollView android:id="@+id/horizontalView" android:layout_height="wrap_content" android:scrollbars="horizontal|vertical" android:layout_width="wrap_content" android:layout_marginTop="0dip">
+            <TableLayout android:id="@+id/table" android:layout_width="match_parent" android:layout_height="match_parent" tools:layout_editor_absoluteX="0dp" tools:layout_editor_absoluteY="0dp">
+                <TableRow android:layout_width="match_parent" android:layout_height="200dp" android:layout_margin="10dp">
+                    <TextView android:id="@+id/title" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/title" tools:layout_editor_absoluteX="0dp" tools:layout_editor_absoluteY="0dp" android:gravity="center" />
+                </TableRow>
+                <TableRow android:layout_width="match_parent" android:layout_height="200dp" android:layout_margin="10dp">
+                    <TextView android:id="@+id/course1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/textview" tools:layout_editor_absoluteX="90dp" tools:layout_editor_absoluteY="254dp" />
+                    <EditText android:id="@+id/grade1" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/default_number" android:inputType="number" />
+                </TableRow>
+                <TableRow android:layout_width="match_parent" android:layout_height="200dp" android:layout_margin="10dp">
+                    <TextView android:id="@+id/course2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/course2" tools:layout_editor_absoluteX="90dp" tools:layout_editor_absoluteY="254dp" />
+                    <EditText android:id="@+id/grade2" android:layout_width="fill_parent" android:layout_height="wrap_content" android:inputType="number" android:hint="@string/default_number" />
+                </TableRow>
+                <TableRow android:layout_width="match_parent" android:layout_height="200dp" android:layout_margin="10dp">
+                    <TextView android:id="@+id/course3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/course3" tools:layout_editor_absoluteX="90dp" tools:layout_editor_absoluteY="254dp" />
+                    <EditText android:id="@+id/grade3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/default_number" android:inputType="number" />
+                </TableRow>
+                <TableRow android:layout_width="match_parent" android:layout_height="200dp" android:layout_margin="10dp">
+                    <TextView android:id="@+id/course4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/course4" tools:layout_editor_absoluteX="90dp" tools:layout_editor_absoluteY="254dp" />
+                    <EditText android:id="@+id/grade4" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/default_number" android:inputType="number" />
+                </TableRow>
+                <TableRow android:layout_width="match_parent" android:layout_height="200dp" android:layout_margin="10dp">
+                    <TextView android:id="@+id/course5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/course5" tools:layout_editor_absoluteX="90dp" tools:layout_editor_absoluteY="254dp" android:singleLine="true" />
+                    <EditText android:id="@+id/grade5" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/default_number" android:inputType="number" />
+                </TableRow>
+                <TableRow android:layout_width="match_parent" android:layout_height="200dp" android:layout_margin="10dp" android:layout_gravity="center_horizontal">
+                    <TextView android:id="@+id/result" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" tools:layout_editor_absoluteX="0dp" tools:layout_editor_absoluteY="0dp" android:gravity="center" />
+                </TableRow>
+                <TableRow android:layout_gravity="center_horizontal" android:layout_width="match_parent" android:layout_height="200dp" android:layout_margin="10dp">
+                    <Button android:id="@+id/gpa_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="calculateGPA" android:text="@string/button_text" tools:layout_editor_absoluteX="0dp" tools:layout_editor_absoluteY="0dp" android:gravity="center" />
+                </TableRow>
+            </TableLayout>
         </HorizontalScrollView>
     </ScrollView>
-
-
 </android.support.constraint.ConstraintLayout>

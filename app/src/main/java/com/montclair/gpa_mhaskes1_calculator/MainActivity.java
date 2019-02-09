@@ -1,23 +1,21 @@
 package com.montclair.gpa_mhaskes1_calculator;
 
-import android.app.Notification;
-import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
-    EditText grade1,grade2,grade3,grade4,grade5;
+    EditText grade1, grade2, grade3, grade4, grade5;
     boolean calculatedResult = false;
+    boolean allValidField = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,16 +32,11 @@ public class MainActivity extends AppCompatActivity {
         grade3.addTextChangedListener(gpaTextWatcher);
         grade4.addTextChangedListener(gpaTextWatcher);
         grade5.addTextChangedListener(gpaTextWatcher);
+    }
 
-    };
-
-
-    boolean allValidField = false;
-
-    public void calculateGPA (View view){
+    public void calculateGPA(View view) {
         // validate content
         allValidField = true;
-
         validateEmptyField(grade1);
         validateEmptyField(grade2);
         validateEmptyField(grade3);
@@ -52,19 +45,15 @@ public class MainActivity extends AppCompatActivity {
 
         TextView result = findViewById(R.id.result);
 
-        if(!allValidField){
-            result.setText("Please enter 0-100 value in RED field(s) above" );
+        if (!allValidField) {
+            result.setText("Please enter 0-100 value in RED field(s) above");
             Toast.makeText(this, "Please enter value in RED fields ", Toast.LENGTH_LONG).show();
             return;
         }
 
         double res = getGPAScore();
-
-        //TODO: update output text/label
-
-
         result.setText("Your GPA is " + res);
-        ((Button)findViewById(R.id.gpa_button)).setText("");
+        ((Button) findViewById(R.id.gpa_button)).setText("");
 
         grade1.setText("");
         grade2.setText("");
@@ -82,12 +71,10 @@ public class MainActivity extends AppCompatActivity {
 
         calculatedResult = true;
         Toast.makeText(this, "Calculated GPA Successfully:: " + res, Toast.LENGTH_LONG).show();
-
-
     }
 
     private void validateEmptyField(EditText e) {
-        if(e.getText().toString().trim().isEmpty()){
+        if (e.getText().toString().trim().isEmpty()) {
             e.setBackgroundColor(Color.RED);
             allValidField = false;
             return;
@@ -97,51 +84,32 @@ public class MainActivity extends AppCompatActivity {
 
         int i = Integer.valueOf(e.getText().toString());
 
-        if (i < 0 || i > 100)
-        {
+        if (i < 0 || i > 100) {
             e.setBackgroundColor(Color.RED);
             allValidField = false;
         }
-
-
-    }
-/*private void closekeyboard()
-{
-    View view = this.getCurrentFocus();
-    if (view!=null)
-    {
-        InputMethodManager keypad = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                keypad.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-}*/
     private double getGPAScore() {
-        //TODO: read all text baxes
-
         String g1 = grade1.getText().toString();
         String g2 = grade2.getText().toString();
         String g3 = grade3.getText().toString();
         String g4 = grade4.getText().toString();
         String g5 = grade5.getText().toString();
 
-
         int i1 = Integer.valueOf(g1);
         int i2 = Integer.valueOf(g2);
         int i3 = Integer.valueOf(g3);
         int i4 = Integer.valueOf(g4);
         int i5 = Integer.valueOf(g5);
-        TextView textView;
 
-
-        // TODO: calculate GPA
-
-        return (double) ((i1 + i2 + i3 + i4 +i5)/5);
+        return (double) ((i1 + i2 + i3 + i4 + i5) / 5);
     }
 
     private void updateBackground(double res) {
-        if (res<60){
+        if (res < 60) {
             findViewById(R.id.layout).setBackgroundColor(Color.RED);
-        }else if (res > 60 && res < 80){
+        } else if (res > 60 && res < 80) {
             findViewById(R.id.layout).setBackgroundColor(Color.YELLOW);
         } else {
             findViewById(R.id.layout).setBackgroundColor(Color.GREEN);
@@ -156,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-        };
+        }
 
         @Override
         public void afterTextChanged(Editable s) {
@@ -168,14 +136,10 @@ public class MainActivity extends AppCompatActivity {
             validateEmptyField(grade4);
             validateEmptyField(grade5);
 
-            if(allValidField && calculatedResult){
-                ((Button)findViewById(R.id.gpa_button)).setText("Re-Calculate GPA");
-            };
-
+            if (allValidField && calculatedResult) {
+                ((Button) findViewById(R.id.gpa_button)).setText("Re-Calculate GPA");
+            }
             return;
         }
-
-
     };
-
 }
